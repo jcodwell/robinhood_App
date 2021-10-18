@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 from robinhood_app.tradingbot_app import views
-
+"""
+--> '' : Home page to view html
+--> AboutInfo-list: get request for ajax call
+"""
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', views.index, name='home'),
+    path('', views.index, name='home'),
     path('aboutInfo-list', views.aboutInfo, name='aboutInfo-list'),
-    path('', include('robinhood_app.tradingbot_app.urls')),
 
 ]

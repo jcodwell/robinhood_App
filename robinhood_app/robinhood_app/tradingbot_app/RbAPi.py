@@ -1,5 +1,4 @@
 import requests
-from django.conf import settings
 
 
 
@@ -16,6 +15,7 @@ class RBApi(object):
     def _get_AboutInfo_Crypto(self):
         """
         Robin Hood does not support a lot of crypto so pagination is not necessary. 
+        Return the results.
         """
         # Get the results 
         response = requests.get(self.aboutInfo_url).json()
