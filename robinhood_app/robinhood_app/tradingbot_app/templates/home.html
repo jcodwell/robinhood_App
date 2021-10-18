@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col">
+      <div class="header">
+        <h2>GET</h2>
+      </div>
+      <button class="btn" id="=data_button">Press to View Tradable Crypto </button>
+     <div class="row my-5">
+        <div class="col-12 col-lg-6 offset-lg-2">
+          <ul class="list-group">
+            <!-- List of todos goes here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+
+{% endblock content %}
+
+{% block javascript %}
+<script>
+  $('button.btn').click(function() {
+    // send a GET request to build the list of todos
+    $.ajax({
+      url: '/aboutInfo-list',
+      type: 'GET',
+      dataType: 'json',
+    }).done(function(response) {
+        console.log(response.aboutInfo)
+        for (var i in response.aboutInfo){
+            var name = `<span>${response.aboutInfo[i].name}</span>`
+            var symbol= `<span>${response.aboutInfo[i].symbol}</span>`
+            var tradability = `<span>${response.aboutInfo[i].tradability}</span>`
+            var item = `
+                <div class="row">
+                <div class="column" style="float: left; width: 33.33%;">
+                <li class="list-group-item d-flex justify-content-between">
+                ${name}
+                </li>
+                </div>
+                <div class="column" style="float: left; width: 33.33%;"> 
+                <li class="list-group-item d-flex justify-content-between">
+                ${symbol}
+                </li>
+                </div>
+                <div class="column" style="float: left; width: 33.33%;">
+                <li class="list-group-item d-flex justify-content-between">
+                ${tradability}
+                </li>
+                </div>
+                </div>
+
+             `
+          $('.list-group').append(item)
+
+            console.log('test',response.aboutInfo[i].name )
+
+        }
+        
+      })
+  })
+</script>
+{% endblock javascript %}

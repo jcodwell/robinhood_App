@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "Rbapi"
+    ],
+    "python.analysis.extraPaths": [
+        "./robinhood_app"
+    ]
+}

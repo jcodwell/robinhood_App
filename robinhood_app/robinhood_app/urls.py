@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from robinhood_app.tradingbot_app import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('BTC/', include('robinhood_app.tradingbot_app.urls')),
-    path('login/', include('robinhood_app.tradingbot_app.urls')),
+    path('home', views.index, name='home'),
+    path('aboutInfo-list', views.aboutInfo, name='aboutInfo-list'),
+    path('', include('robinhood_app.tradingbot_app.urls')),
+
 ]
