@@ -1,8 +1,7 @@
 from logging import getLogger
-import requests
 from django.core.management.base import BaseCommand
-from robinhood_app.tradingbot_app.RBApi import RBApi
 from robinhood_app.tradingbot_app.models import AboutInfo_Crypto
+from robinhood_app.tradingbot_app.RbAPi import RBApi
 from manager_utils import upsert
 
 LOG = getLogger(__name__)
